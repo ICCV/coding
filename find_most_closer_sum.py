@@ -68,5 +68,5 @@ def get_solution_2(data,k):
 if __name__ == '__main__':
     data = [6, 6, 5, 2, 1, 1]
     k = 3
-    print get_solution_1(data,k)
+    print(get_solution_1(data,k))
     
