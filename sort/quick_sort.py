@@ -23,11 +23,37 @@ class Solution(object):
                 quick_sort(nums,index+1,right)
         quick_sort(nums,0,len(nums)-1)
         return nums
+
     def sort2(self,nums):
-        
-        def merge_sort(nums,)
+
+        def merge(a,b):
+            c = []
+            i,j=0,0
+            while i<=len(a) and j<=len(b):
+                if i==len(a):
+                    c = c + b[j:]
+                    break
+                if j==len(b):
+                    c = c + a[i:]
+                    break
+                if a[i]<b[j]:
+                    c.append(a[i])
+                    i = i+1
+                else:
+                    c.append(b[j])
+                    j = j+1
+            return c
+
+        def merge_sort(nums):
+            if len(nums)<=1:
+                return nums
+            m = int(len(nums)/2)
+            a = merge_sort(nums[:m])
+            b = merge_sort(nums[m:])
+            return merge(a,b)
+        return merge_sort(nums)
 
 if __name__ == '__main__':
     s = Solution()
     nums = [2,8,5,7,2,9,4,5,1,9]
-    print(s.sor1(nums))
+    print(s.sort2(nums))
